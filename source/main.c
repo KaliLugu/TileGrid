@@ -20,6 +20,16 @@ int main() {
     InitWindow(800, 450, "Ma fenêtre");
     SetWindowMinSize(320, 240);
     SetTargetFPS(60);
+
+    // load image
+    Image tilesheet = LoadImage("assets/room.png");
+    if (tilesheet.data == NULL) {
+        printf("Failed to load image: assets/room.png\n");
+        return 1;
+    }
+// 336 première texture
+    ImageCrop(&tilesheet, (Rectangle){ 0, 336, 48, 48 });
+
     while (!WindowShouldClose())
     {
         int w = GetScreenWidth();
@@ -43,6 +53,8 @@ int main() {
 
             zoomLevel += zoomAction();
             textureRenderSize = textureResolution * zoomLevel;
+
+
 
         EndDrawing();
     }
