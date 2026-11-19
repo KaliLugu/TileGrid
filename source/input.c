@@ -17,3 +17,10 @@ int zoomAction() {
     return 0;
 }
 
+Vector2 choseTile(int tileRes, int tileSheetRes, Vector2 mousePos) {
+
+    int tilex = mousePos.x - (GetScreenWidth() - 400) / tileRes;
+    int tiley = mousePos.y / tileRes;
+
+    return (Vector2){tilex, tiley};
+}
